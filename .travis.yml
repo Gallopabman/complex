@@ -9,10 +9,10 @@ script:
   - docker run -e CI=true elgallopabman/complex npm test
 
 after_success:
-  - docker build -t gallopabman/multi-client ./client
-  - docker build -t gallopabman/multi-nginx ./nginx
-  - docker build -t gallopabman/multi-server ./server
-  - docker build -t gallopabman/multi-worker ./worker
+  - docker build -t elgallopabman/multi-client ./client
+  - docker build -t elgallopabman/multi-nginx ./nginx
+  - docker build -t elgallopabman/multi-server ./server
+  - docker build -t elgallopabman/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push elgallopabman/multi-client
   - docker push elgallopabman/multi-nginx
